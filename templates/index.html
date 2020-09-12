@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistemas Inteligentes</title>
+    </head>
+    <body>
+        <h1>Agente Viajero</h1>
+        <img src="{{url_for('static', filename='img/mapa_rumania.jpg')}}" />
+        {% from "_macro.html" import render_field %}
+        <form method="post">
+            {{render_field(form.origen)}}
+            {{render_field(form.destino)}}
+            <button type="submit">Enviar</button>
+        </form>
+        <p><b>Distancia lineal: </b> {{distancia_lineal}}</p>
+        <p><b>Distancia mas corta: </b> {{distancia}}</p>
+        <p><b>Camino:</b></p>
+        {% for a in acciones %}
+            <p> {{a}}</p>
+        {% endfor %}
+    </body>
+</html>
