@@ -5,3 +5,4 @@ from wtforms import SelectField
 class CiudadesForm(Form):
     origen = SelectField("origen")
     destino = SelectField("destino")
+    tecnica = SelectField("tecnica")

@@ -70,6 +70,7 @@ def index():
     # cargamos las ciudades de nuestro mapa en los combo box
     local_form.origen.choices = [(o, o) for o in rumania.ciudades.keys()]
     local_form.destino.choices = [(o, o) for o in rumania.ciudades.keys()]
+    local_form.tecnica.choices = ["costouniforme","codicioso","A*"]
     # verificamos si se esta enviando las ciudades seleccionadas del combobox al formulario
     if request.method == 'POST':
         # computar distancia lineal de la ciudad origen a ciudad destino
@@ -87,10 +88,11 @@ def index():
         bus = AgenteViajero()
         bus.set_estado_inicial(local_form.origen.data)
         bus.set_estado_meta(local_form.destino.data)
+        bus.set_tecnica(local_form.tecnica.data)
         # seleccionamos la tecnica
         # bus.set_tecnica("costouniforme")
         # bus.set_tecnica("codicioso")
-        bus.set_tecnica("A*")
+        # bus.set_tecnica("A*")
         # insertamos nuestro agente
         rumania.insertar_objeto(bus)
         # ejecutamos nuestro agente

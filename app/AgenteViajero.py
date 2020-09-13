@@ -23,8 +23,6 @@ class AgenteViajero(AgenteBuscador):
         ciudad_destino = (l2.latitude, l2.longitude)
         distancia_lineal = geodesic(ciudad_origen, ciudad_destino).kilometers
         return distancia_lineal
-        # aqui tu codigo
-        pass
 
     def get_funcion_a(self, camino):
         return self.get_costo(camino) + self.get_heuristica(camino)
